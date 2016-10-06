@@ -12,7 +12,7 @@ import re
 import sys
 import os
 import random
-import multiprocessing
+import threading
 import platform
 import logging
 from collections import defaultdict
@@ -916,8 +916,9 @@ class WebWeixin(object):
             print '[*] 自动回复模式 ... 关闭'
             logging.debug('[*] 自动回复模式 ... 关闭')
 
-        listenProcess = multiprocessing.Process(target=self.listenMsgMode)
+        listenProcess = threading.Thread(target=self.listenMsgMode)
         listenProcess.start()
+        listenProcess.join()
 
         while True:
             text = raw_input('')
