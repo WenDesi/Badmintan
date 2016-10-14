@@ -12,7 +12,7 @@ import json
 import time
 
 
-class Batminton(object):
+class Badminton(object):
 
     def __init__(self):
         self.host = 'http://219.223.222.202:8080/'
@@ -104,7 +104,7 @@ class Batminton(object):
 
 
 if __name__ == '__main__':
-    bt = Batminton()
+    bt = Badminton()
     bt.login()
     bt.check_court_info()
 
